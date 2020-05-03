@@ -7,8 +7,10 @@ services:
         environment:
             - MONGODB_URL=mongodb://mongodb:27017
             - JUPYTER_ENABLE_LAB
+            - GRANT_SUDO
         volumes:
             - ./services/jupyter/certs:/etc/ssl/notebook
+            - $SSHKEY_PATH:/home/jovyan/.ssh
             - $WORKSPACE_PATH:/home/jovyan/work
         ports:
             - "8888:8888"
