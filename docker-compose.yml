@@ -3,14 +3,13 @@ services:
     
     jupyter:
         restart: always
-        image: jupyter/scipy-notebook:latest
+        build: ./services/jupyter
         environment:
             - MONGODB_URL=mongodb://mongodb:27017
             - JUPYTER_ENABLE_LAB
         volumes:
-            - ./services/jupyter/workspace:/home/jovyan/work
-            - ./services/jupyter/notebook.crt:/etc/ssl/notebook/notebook.crt
-            - ./services/jupyter/notebook.key:/etc/ssl/notebook/notebook.key
+            - ./services/jupyter/certs:/etc/ssl/notebook
+            - $WORKSPACE_PATH:/home/jovyan/work
         ports:
             - "8888:8888"
         depends_on:

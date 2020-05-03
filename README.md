@@ -22,7 +22,7 @@ passwd('OlenOmena1')
 You can use your own certificates or generate self signed certificates with comamnd below. The certificates must be named "notebook.crt" and "notebook.key" and placed in services/jupyter
 
 ```
-openssl req -x509 -newkey rsa:4096 -keyout services/jupyter/notebook.key -out services/jupyter/notebook.crt -days 1825 -nodes
+openssl req -x509 -newkey rsa:4096 -keyout services/jupyter/certs/notebook.key -out services/jupyter/certs/notebook.crt -days 1825 -nodes
 openssl req -x509 -newkey rsa:4096 -keyout services/mongodb/mongodb.key -out services/mongodb/mongodb.crt -days 1825 -nodes
 cat services/mongodb/mongodb.crt services/mongodb/mongodb.key > services/mongodb/mongodb.pem
 ```
