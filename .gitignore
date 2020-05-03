@@ -1,0 +1,5 @@
+.env
+services/jupyter/workspace/*
+*.crt
+*.pem
+*.key
